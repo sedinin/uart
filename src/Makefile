@@ -33,6 +33,7 @@ clean:
 	$(ERLC) $<
 
 $(APP_TARGET): $(APP_SRC)
+	echo $(MODULES)
 	sed -e 's;{vsn,.*git};{vsn,"$(VERSION)"};' -e 's;"@@MODULES@@";$(MODULES);' $(APP_SRC) > $(APP_TARGET)
 
 -include .*.d
